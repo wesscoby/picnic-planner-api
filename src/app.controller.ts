@@ -1,12 +1,17 @@
-import { Controller, Get } from '@nestjs/common';
-import { AppService } from './app.service';
+import { Controller, Get, Version, VERSION_NEUTRAL } from '@nestjs/common';
+import { ApiTags } from '@nestjs/swagger';
+import { SWAGGER_OPTIONS } from 'common/constants';
 
+@ApiTags('App')
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
-  }
+	@Get()
+	@Version(VERSION_NEUTRAL)
+	index() {
+		const { info } = SWAGGER_OPTIONS;
+		return {
+			title: info.title,
+			description: info.description,
+		};
+	}
 }

@@ -1,0 +1,18 @@
+{
+	"moduleFileExtensions": ["js", "json", "ts"],
+	"rootDir": "../..",
+	"moduleDirectories": ["<rootDir>/src", "node_modules"],
+	"testEnvironment": "node",
+	"testRegex": ".spec.ts$",
+	"restoreMocks": true,
+	"transform": {
+		"^.+\\.(t|j)s$": "ts-jest"
+	},
+	"collectCoverageFrom": [
+		"src/config/index.ts",
+		"src/**/*controller.ts",
+		"src/**/*.service.ts"
+	],
+	"coverageDirectory": "coverage/unit",
+	"coverageReporters": ["json", "lcov", "html", "text-summary"]
+}

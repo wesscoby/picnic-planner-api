@@ -11,7 +11,9 @@
 	"collectCoverageFrom": [
 		"src/config/index.ts",
 		"src/**/*controller.ts",
-		"src/**/*.service.ts"
+		"src/**/*.service.ts",
+		"src/**/*.decorator.ts",
+		"src/**/*.pipe.ts"
 	],
 	"coverageDirectory": "coverage/unit",
 	"coverageReporters": ["json", "lcov", "html", "text-summary"]

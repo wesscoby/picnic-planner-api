@@ -19,6 +19,8 @@ namespace Config {
 
 	export interface ENV {
 		app: APP;
+		geocoderApiKey: string;
+		brightSkyApiUrl: string;
 	}
 
 	export const schema = Joi.object({
@@ -30,6 +32,8 @@ namespace Config {
 		SERVER_HOST: Joi.string().required(),
 		APP_HOST: Joi.string().required(),
 		PORT: Joi.number().default(5000).required(),
+		GEOCODER_API_KEY: Joi.string().required(),
+		BRIGHT_SKY_API_URL: Joi.string().required(),
 	});
 
 	export const getVariables = (): ENV => ({
@@ -40,6 +44,8 @@ namespace Config {
 			appHost: env.APP_HOST || '',
 			port: Number(env.PORT) || 5000,
 		},
+		geocoderApiKey: env.GEOCODER_API_KEY || '',
+		brightSkyApiUrl: env.BRIGHT_SKY_API_URL || '',
 	});
 
 	@Injectable()
@@ -48,6 +54,14 @@ namespace Config {
 
 		get app() {
 			return this.config.get('app', { infer: true });
+		}
+
+		get geocoderApiKey() {
+			return this.config.get('geocoderApiKey', { infer: true });
+		}
+
+		get brightSkyApiUrl() {
+			return this.config.get('brightSkyApiUrl', { infer: true });
 		}
 	}
 }

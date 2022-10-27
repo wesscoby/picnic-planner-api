@@ -12,6 +12,8 @@ $ yarn
 ## Setup
 - Create `.env` and `.env.test` environment variable files in the root of the project
 - Copy over the environment variables from the `*.example` environment files into their respective `.env*` files
+- Head over to [OpenCage](https://opencagedata.com/), sign up for a free account and obtain an API key
+  - Add the API key as value for `GEOCODER_API_KEY` variable in both `.env` and `.env.test` files.
 
 ## Running the app
 

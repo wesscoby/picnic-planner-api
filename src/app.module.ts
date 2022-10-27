@@ -5,6 +5,7 @@ import { join } from 'path';
 import { CustomConfigModule } from 'config/config.module';
 import { HealthModule } from 'health/health.module';
 import { AppController } from './app.controller';
+import { PlannerModule } from './planner/planner.module';
 
 @Module({
 	imports: [
@@ -17,6 +18,7 @@ import { AppController } from './app.controller';
 		}),
 		HttpModule.registerAsync({ useFactory: () => ({ timeout: 5000 }) }),
 		HealthModule,
+		PlannerModule,
 	],
 	controllers: [AppController],
 	providers: [],
